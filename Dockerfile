@@ -1,17 +1,28 @@
 FROM ubuntu:latest
+ENV MAC=$MAC
+ENV EX='$1'
+ENV EX2='${1//[-]/:}'
 RUN apt-get update -y \
-    && apt-get install -y webhook etherwake
-RUN cat <<EOT >> wake.sh
-#!/bin/sh
-etherwake -i ens34 00:D8:61:19:6D:12
-echo wakeup
+    && apt-get install -y webhook etherwake nano
+
+RUN cat <<EOT >> entrypoint.sh
+#!/bin/bash
+rm run.sh
+rm hooks.json
+echo #!/bin/bash >> run.sh
+echo echo $EX >> run.sh
+echo echo $EX2 >> run.sh
+echo etherwake -i ens34 $EX2 >> run.sh
+echo echo run >> run.sh
+chmod +x run.sh
+echo [ >> hooks.json
+echo  { >> hooks.json
+echo    "id": "run", >> hooks.json
+echo    "execute-command": "/run.sh" >> hooks.json
+echo  } >> hooks.json
+echo ] >> hooks.json
+webhook --verbose --hooks ./hooks.json
 EOT
-RUN chmod +x ./wake.sh
-RUN echo ' [ \n\
-  { \n\
-    "id": "run", \n\
-    "execute-command": "/wake.sh" \n\
-  } \n\
-]' > ./hooks.json
-ENTRYPOINT webhook --verbose --hooks ./hooks.json
+RUN chmod +x ./entrypoint.sh
+ENTRYPOINT ./entrypoint.sh $MAC
 EXPOSE 9000
