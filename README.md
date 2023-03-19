@@ -19,10 +19,10 @@ Run the container with your MAC Address (split by - or :)
 docker run --network host -e MAC="01-23-45-67-89-10" --name WoW -d -p 9000:9000 docker-webhook-wakeonwan
 ```
 
-Or simply build with docker-compose :
+Or simply build with docker-compose, indicate your mac address and do :
 
 ```
-docker-compuse up -d
+docker-compose up -d
 ```
 
 ## What can I do with ?
@@ -41,11 +41,5 @@ curl 192.168.1.60:9000
 - Add Webhooks request with IFTTT to wakeUP your computer with some services like Google Assistant
 
 - etc.
-
-
-To do :
-
-- [ ] Create clean image
-- [X] Variable for mac address
 
 
