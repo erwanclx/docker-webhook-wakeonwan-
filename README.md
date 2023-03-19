@@ -3,6 +3,12 @@
 Actually working with network mode host and request on 9000 port in dockerfile
 
 ## How-to run ?
+Easy way :
+```
+docker run --network host -e MAC="01-23-45-67-89-10" --name WoW -d -p 9000:9000 erwanclx/webhook-wakeonlan
+```
+
+OR
 
 Clone the repo :
 ```
