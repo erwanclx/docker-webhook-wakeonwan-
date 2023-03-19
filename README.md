@@ -19,6 +19,12 @@ Run the container with your MAC Address (split by - or :)
 docker run --network host -e MAC="01-23-45-67-89-10" --name WoW -d -p 9000:9000 docker-webhook-wakeonwan
 ```
 
+Or simply build with docker-compose :
+
+```
+docker-compuse up -d
+```
+
 ## What can I do with ?
 
 WakeUp your PC with one of some methods :
