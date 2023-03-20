@@ -1,7 +1,9 @@
 FROM ubuntu:latest
 ENV MAC=$MAC
+ENV PORT=$PORT
 ENV EX='$1'
 ENV EX2='${1//[-]/:}'
+ENV EX3='$2'
 RUN apt-get update -y \
     && apt-get install -y webhook etherwake nano
 
@@ -21,8 +23,7 @@ echo    "id": "run", >> hooks.json
 echo    "execute-command": "/run.sh" >> hooks.json
 echo  } >> hooks.json
 echo ] >> hooks.json
-webhook --verbose --hooks ./hooks.json
+webhook -port $EX3 --verbose --hooks ./hooks.json
 EOT
 RUN chmod +x ./entrypoint.sh
-ENTRYPOINT ./entrypoint.sh $MAC
-EXPOSE 9000
+ENTRYPOINT ./entrypoint.sh $MAC $PORT

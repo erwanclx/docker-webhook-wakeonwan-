@@ -1,9 +1,10 @@
 version: "3.9"
 services:
   WoW:
-    image: "erwanclx/webhook-wakeonlan:v1-release"
+    image: "erwanclx/webhook-wakeonlan"
     restart: "always"
     container_name: "WoW"
     network_mode: "host"
     environment: 
       - MAC="01-23-45-67-89-10"
+      - PORT="9001"
