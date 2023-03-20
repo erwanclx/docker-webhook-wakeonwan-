@@ -5,7 +5,7 @@ Actually working with network mode host and request on 9000 port in dockerfile
 ## How-to run ?
 Simplest way with your MAC and port :
 ```
-docker run --network host -e MAC="01-23-45-67-89-10" -e PORT="9001" --name WoW -d erwanclx/docker-webhook-wakeonwan
+docker run --network host -e MAC="01-23-45-67-89-10" -e PORT="9001" --name WoW -d erwanclx/webhook-wakeonlan
 ```
 
 ### OR
