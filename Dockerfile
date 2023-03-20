@@ -11,7 +11,7 @@ RUN cat <<EOT >> entrypoint.sh
 #!/bin/bash
 rm run.sh
 rm hooks.json
-echo #!/bin/bash >> run.sh
+echo '#!/bin/sh' >> run.sh
 echo echo $EX >> run.sh
 echo echo $EX2 >> run.sh
 echo etherwake -i ens34 $EX2 >> run.sh
