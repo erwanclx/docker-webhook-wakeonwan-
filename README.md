@@ -45,7 +45,6 @@ curl 192.168.1.60:9000
 
 To do :
 
-- [ ] Create clean image
-- [X] Variable for mac address
+- [ ] Choose listening port
 
 
