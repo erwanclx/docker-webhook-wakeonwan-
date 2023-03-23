@@ -36,7 +36,7 @@ WakeUp your PC with one of some methods :
 curl 192.168.1.60:9000
 ```
 
-- Go to the page 192.168.1.60:9000 with your browser
+- Go to the page 192.168.1.60:9000/hooks/run with your browser
 
 - Add Webhooks request with IFTTT to wakeUP your computer with some services like Google Assistant
 
