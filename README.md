@@ -33,7 +33,7 @@ WakeUp your PC with one of some methods :
 
 - Curl method :
 ```
-curl 192.168.1.60:9000
+curl 192.168.1.60:9000/hooks/run
 ```
 
 - Go to the page 192.168.1.60:9000/hooks/run with your browser
