@@ -37,14 +37,12 @@ ENV PORT=$PORT
 #     ENV FORMATTED_MAC=$MAC
 
 RUN apt-get update -y \
-    && apt-get install -y webhook etherwake nano wget
+    && apt-get install -y webhook etherwake nano wget net-tools
 
 RUN wget "https://raw.githubusercontent.com/erwanclx/docker-webhook-wakeonwan-/main/run.sh" && \
     chmod +x run.sh
 
 RUN wget "https://raw.githubusercontent.com/erwanclx/docker-webhook-wakeonwan-/main/hooks.json"
-
-RUN echo $MAC > interface
 
 ENTRYPOINT webhook -port $PORT --verbose --hooks ./hooks.json
 
