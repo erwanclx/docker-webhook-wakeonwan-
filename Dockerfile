@@ -14,8 +14,10 @@ rm hooks.json
 echo '#!/bin/sh' >> run.sh
 echo echo $EX >> run.sh
 echo echo $EX2 >> run.sh
-echo etherwake -i ens34 $EX2 >> run.sh
+echo etherwake -i INTERFACE_ETH $EX2 >> run.sh
 echo echo run >> run.sh
+$interface = $(route | grep '^default' | grep -o '[^ ]*$')
+sed -i "s/INTERFACE_ETH/$interface/g" run.sh
 chmod +x run.sh
 echo [ >> hooks.json
 echo  { >> hooks.json
