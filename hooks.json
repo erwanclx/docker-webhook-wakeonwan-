@@ -1,0 +1,6 @@
+[
+    {
+        "id": "run",
+        "execute-command": "/run.sh"
+    }
+]
